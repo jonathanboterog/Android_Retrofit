@@ -8,6 +8,33 @@ public class Pet implements Serializable {
     private String name;
     private int rating;
     private int photo;
+    private String photoUrl;
+    private String caption;
+    private String id_str;
+
+    public String getPhotoUrl() {
+        return photoUrl;
+    }
+
+    public void setPhotoUrl(String photoUrl) {
+        this.photoUrl = photoUrl;
+    }
+
+    public String getCaption() {
+        return caption;
+    }
+
+    public void setCaption(String caption) {
+        this.caption = caption;
+    }
+
+    public String getId_str() {
+        return id_str;
+    }
+
+    public void setId_str(String id_str) {
+        this.id_str = id_str;
+    }
 
     public Pet(String name, int rating, int photo) {
         this.name = name;

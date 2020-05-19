@@ -10,17 +10,19 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:launchMode="singleTop"
         android:theme="@style/AppTheme">
-        <activity android:name=".OptionMenu.About"
+        <activity android:name=".PhotoDetail"/>
+        <activity
+            android:name=".OptionMenu.About"
             android:parentActivityName=".MainActivity">
+
             <!-- support for version below 4.0 -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-        <activity android:name=".OptionMenu.ContactForm">
-
-        </activity>
+        <activity android:name=".OptionMenu.ContactForm"></activity>
         <activity
             android:name=".PetHistorical"
             android:parentActivityName=".MainActivity">

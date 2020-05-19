@@ -18,7 +18,7 @@
         <ImageView
             android:id="@+id/imgProfContactPhoto"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="200dp"
             android:layout_gravity="center"
             android:src="@drawable/cateyes"
             android:background="@color/colorItemRecyclerView"
@@ -28,6 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:gravity="center"
             android:orientation="horizontal"
             android:padding="@dimen/cardview_padding">
 
@@ -36,20 +37,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_weight="0.5"
-                android:gravity="end"
+                android:gravity="center"
                 android:text="@string/rating"
                 android:textSize="@dimen/cardview_name_fontsize"
-                android:textStyle="bold" />
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_margin="10dp"
-                android:layout_weight="0.5"
-                android:contentDescription="@string/image"
-                android:gravity="center"
-                android:src="@drawable/likecount_64" />
+                android:textStyle="normal" />
 
         </LinearLayout>
 

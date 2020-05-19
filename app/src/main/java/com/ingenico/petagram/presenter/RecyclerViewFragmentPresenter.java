@@ -1,11 +1,8 @@
 package com.ingenico.petagram.presenter;
 import android.content.Context;
-
-import com.ingenico.petagram.R;
 import com.ingenico.petagram.fragment.IRecyclerViewFragment;
 import com.ingenico.petagram.model.Pet;
 import com.ingenico.petagram.model.PetConstructor;
-
 import java.util.ArrayList;
 
 public class RecyclerViewFragmentPresenter {

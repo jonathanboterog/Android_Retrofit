@@ -1,14 +1,20 @@
 package com.ingenico.petagram.adapter;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.material.snackbar.Snackbar;
+import com.ingenico.petagram.PetHistorical;
+import com.ingenico.petagram.PhotoDetail;
 import com.ingenico.petagram.R;
 import com.ingenico.petagram.model.Pet;
+import com.ingenico.petagram.model.PetApi;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -16,11 +22,11 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class PetProfileAdapter extends RecyclerView.Adapter<PetProfileAdapter.ContactViewHolder> {
-    private ArrayList<Pet> pets;
+    private ArrayList<PetApi> pets;
     private Activity activity;
 
     //Construye lista de contactos
-    public PetProfileAdapter(ArrayList<Pet> pets, Activity activity){
+    public PetProfileAdapter(ArrayList<PetApi> pets, Activity activity){
         this.pets = pets;
         this.activity = activity;
     }
@@ -36,9 +42,20 @@ public class PetProfileAdapter extends RecyclerView.Adapter<PetProfileAdapter.Co
     @Override
     public void onBindViewHolder(@NonNull final PetProfileAdapter.ContactViewHolder contactViewHolder, int position) {
         //Donde se pasa lista de contactos. Asocia cada elemento de nuestra lista a cada view.
-        final Pet pet = pets.get(position);
-        contactViewHolder.imgProfContactPhoto.setImageResource(pet.getPhoto());
-        contactViewHolder.tvProfRating.setText(String.valueOf(pet.getRating()));
+        final PetApi pet = pets.get(position);
+        Picasso.get().load(pet.getPhotoUrl()).into(contactViewHolder.imgProfContactPhoto);
+        contactViewHolder.tvProfRating.setText("Id: " + String.valueOf(pet.getId_str()));
+
+        contactViewHolder.imgProfContactPhoto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), PhotoDetail.class);
+                intent.putExtra(activity.getString(R.string.pDetailUrl), pet.getCaption());
+                intent.putExtra(activity.getString(R.string.pDetailPhoto), pet.getPhotoUrl());
+                activity.startActivity(intent);
+            }
+        });
+
     }
 
     @Override

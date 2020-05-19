@@ -1,7 +1,7 @@
 package com.ingenico.petagram.fragment;
 
-import com.ingenico.petagram.adapter.PetAdapter;
-import com.ingenico.petagram.model.Pet;
+import com.ingenico.petagram.adapter.PetProfileAdapter;
+import com.ingenico.petagram.model.PetApi;
 
 import java.util.ArrayList;
 
@@ -9,7 +9,9 @@ public interface IProfileFragment {
 
     void GenerateGridLayout();
 
-    PetAdapter createAdapter(ArrayList<Pet> pets);
+    PetProfileAdapter createAdapter(ArrayList<PetApi> pets);
 
-    void initAdapter(PetAdapter adapter);
+    void initAdapter(PetProfileAdapter adapter);
+
+    void RefreshContent();
 }
